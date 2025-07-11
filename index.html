@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Centered Page Embed</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+    body::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('background.png');
+      background-size: cover;
+      background-position: center;
+      animation: blurIn 2s ease forwards;
+      z-index: -1;s
+    }
+
+    iframe {
+      border: 2px solid #333;
+      width: 450px;
+      height: 400px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      background-color: white;
+    }
+
+    @keyframes blurIn {
+      from {
+        filter: blur(20px);
+      }
+      to {
+        filter: blur(3px);
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <iframe src="Captcha3.html" title="Inner Page"></iframe>
+</body>
+</html>
