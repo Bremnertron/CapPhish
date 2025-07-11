@@ -1,5 +1,5 @@
 # CapPhish
-A PoC screen for Capture phishing 
+A PoC screen for captcha phishing 
 
 ⚠️ Disclaimer: This project is intended for educational purposes, security research, and authorized penetration testing only. Unauthorized use against systems you do not own or have explicit permission to test is illegal and unethical.
 
